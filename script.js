@@ -44,7 +44,10 @@ async function obtenerDeportes(){
 }
 
 async function accion(){
-        contenido.innerHTML="";
+    
+    contenido.innerHTML="";
+    try{
+        
     const response = await fetch(URLEQUIPOS+comboDeportes.value+"&c="+comboPaises.value);
     const data = await response.json();
 
@@ -57,9 +60,9 @@ async function accion(){
         d.className="equipo";
         contenido.appendChild(d);
 
-
-
         }
-
+    }catch(error){
+        alert(error);
+    }
 
 }
